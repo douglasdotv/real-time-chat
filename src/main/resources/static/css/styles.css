@@ -1,3 +1,9 @@
+.chat-title {
+    font-family: 'Satisfy', sans-serif;
+    color: #4b0082;
+    font-size: 2rem;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -5,18 +11,24 @@ body {
 }
 
 #chat-box {
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    height: 70vh;
 }
 
 #messages {
-    max-height: 200px;
+    flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .message {
     margin-top: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 #input-msg {

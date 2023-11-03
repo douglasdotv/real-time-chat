@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="chat-box" class="container pb-2">
-    <ul id="messages" class="list-group list-group-flush">
-        <li class="list-group-item message">Hard-coded message 1</li>
-        <li class="list-group-item message">Hard-coded message 2</li>
-        <li class="list-group-item message">Hard-coded message 3</li>
-        <li class="list-group-item message">Hard-coded message 4</li>
-        <li class="list-group-item message">Hard-coded message 5</li>
-    </ul>
-    <div id="send-msg-row" class="row mt-3">
-        <div class="col-md-11">
-            <label for="input-msg" class="visually-hidden">Type your message here…</label>
-            <textarea id="input-msg" class="form-control" placeholder="Type your message here…" rows="3"></textarea>
-        </div>
-        <div class="col-md-1 d-flex align-items-end">
-            <button id="send-msg-btn" class="btn btn-outline-dark w-100">Send</button>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div id="chat-box" class="container pb-3">
+        <h1 class="chat-title text-center py-3 my-3">Chatwave チャット</h1>
+        <ul id="messages" class="list-group list-group-flush"></ul>
+        <div id="send-msg-row" class="row mt-3">
+            <div class="col-8 col-sm-10 col-md-11">
+                <label for="input-msg" class="visually-hidden">Type your message here…</label>
+                <textarea id="input-msg" class="form-control" placeholder="Type your message here…" rows="3"></textarea>
+            </div>
+            <div class="col-4 col-sm-2 col-md-1 d-flex align-items-end">
+                <button id="send-msg-btn" class="btn btn-outline-dark mt-auto w-100">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
