@@ -20,6 +20,15 @@
         messageElement.scrollIntoView({behavior: "smooth"});
     };
 
+    const socket = new SockJS("/ws");
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function () {
+        stompClient.subscribe("/topic/messages", function (messageOutput) {
+            attachMessageToChat(JSON.parse(messageOutput.body).message);
+        });
+    });
+
     const sendMessage = () => {
         const message = document.getElementById("input-msg").value;
 
@@ -27,7 +36,11 @@
             return;
         }
 
-        attachMessageToChat(message);
+        if (stompClient) {
+            const chatMessage = {message: message};
+            stompClient.send("/app/chat", {}, JSON.stringify(chatMessage));
+        }
+
         document.getElementById("input-msg").value = "";
     };
 
