@@ -11,6 +11,13 @@
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100">
+        <div id="choose-username-area">
+            <p class="text-center">Welcome to <span class="chat-title">チャット!</span></p>
+            <label for="input-username">Choose a username: </label>
+            <input id="input-username" class="form-control mt-1" type="text" placeholder="Enter your username">
+            <button id="send-username-btn" class="btn btn-outline-dark mt-3">Join</button>
+            <p id="username-error" class="text-danger mt-2"></p>
+        </div>
         <div id="chat-box" class="container pb-3">
             <h1 class="chat-title text-center py-3 my-3">Chatwave チャット</h1>
             <ul id="messages" class="list-group list-group-flush"></ul>

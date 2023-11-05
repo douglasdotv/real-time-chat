@@ -1,6 +1,16 @@
 package br.com.dv.chat.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public record ChatMessage(@NotBlank String message) {
+import java.time.LocalDateTime;
+
+public record ChatMessage(
+        @NotBlank
+        String message,
+        @NotBlank
+        String sender,
+        @NotNull
+        LocalDateTime date
+) {
 }
