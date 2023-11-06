@@ -1,7 +1,7 @@
 package br.com.dv.chat.controller;
 
 import br.com.dv.chat.model.ChatMessage;
-import br.com.dv.chat.model.ChatUsername;
+import br.com.dv.chat.model.ChatUser;
 import br.com.dv.chat.service.ChatService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class ChatController {
         this.chatService = chatService;
     }
 
-    @MessageMapping("/chat")
+    @MessageMapping("/messages")
     @SendTo("/topic/messages")
     public ChatMessage sendMessage(@Valid ChatMessage message) {
         return message;
@@ -42,9 +42,15 @@ public class ChatController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<ChatUsername> saveUser(@Valid @RequestBody ChatUsername username) {
-        ChatUsername addedUsername = chatService.addUsername(username);
-        return ResponseEntity.ok(addedUsername);
+    public ResponseEntity<ChatUser> saveUser(@Valid @RequestBody ChatUser user) {
+        ChatUser addedUser = chatService.addUser(user);
+        return ResponseEntity.ok(addedUser);
+    }
+
+    @GetMapping("/connected-users")
+    public ResponseEntity<List<ChatUser>> getConnectedUsers() {
+        List<ChatUser> connectedUsers = chatService.getConnectedUsers();
+        return ResponseEntity.ok(connectedUsers);
     }
 
 }
